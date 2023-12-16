@@ -1,0 +1,192 @@
+{
+    "import_options": {
+        "calculateTangentSpace": {
+            "description": "Calculates the tangents and bitangents for the imported meshes.",
+            "name": "Calculate Tangent Space",
+            "type": "Boolean",
+            "value": false
+        },
+        "dropNormals": {
+            "description": "Drops normals for all faces of all meshes.",
+            "name": "Drop Normals",
+            "type": "Boolean",
+            "value": false
+        },
+        "fbxPreservePivots": {
+            "description": "Set whether the fbx importer will preserve pivot points (as extra nodes)",
+            "name": "FBX: Preserve Pivot Points",
+            "type": "Boolean",
+            "value": false
+        },
+        "findDegenerates": {
+            "description": "This step searches all meshes for degenerate primitives and converts them to proper lines or points.",
+            "name": "Find Degenerates",
+            "type": "Boolean",
+            "value": true
+        },
+        "findInstances": {
+            "description": "This step searches for duplicate meshes and replaces them with references to the first mesh.",
+            "name": "Find Instances",
+            "type": "Boolean",
+            "value": false
+        },
+        "findInvalidData": {
+            "description": "This step searches all meshes for invalid data, such as zeroed normal vectors or invalid UV coords and removes/fixes them. This is intended to get rid of some common exporter errors.",
+            "name": "Find Invalid Data",
+            "type": "Boolean",
+            "value": true
+        },
+        "fixInfacingNormals": {
+            "description": "Tries to determine which meshes have normal vectors that are facing inwards and inverts them.",
+            "name": "Fix Infacing Normals",
+            "type": "Boolean",
+            "value": false
+        },
+        "generateLightmapUV": {
+            "description": "Unwrap mesh to generate lightmap UV channel",
+            "name": "Generate lightmap UV channel",
+            "type": "Boolean",
+            "value": false
+        },
+        "generateMipMaps": {
+            "description": "Force all imported texture components to generate mip maps for mip map texture filtering",
+            "name": "Generate Mip Maps",
+            "type": "Boolean",
+            "value": true
+        },
+        "generateNormals": {
+            "description": "Generates normals for all faces of all meshes",
+            "name": "Generate Normals",
+            "type": "Boolean",
+            "value": false
+        },
+        "generateSmoothNormals": {
+            "description": "Generates smooth normals for all vertices in the mesh.",
+            "name": "Generate Smooth Normals",
+            "type": "Boolean",
+            "value": true
+        },
+        "globalScale": {
+            "description": "This step will perform a global scale of the model.",
+            "name": "Enable Global Scale",
+            "type": "Boolean",
+            "value": false
+        },
+        "globalScaleValue": {
+            "conditions": [
+                {
+                    "mode": "Equals",
+                    "property": "globalScale",
+                    "value": true
+                }
+            ],
+            "description": "Global Scale factor.",
+            "name": "Global Scale Value",
+            "type": "Real",
+            "value": 1
+        },
+        "improveCacheLocality": {
+            "description": "Reorders triangles for better vertex cache locality.",
+            "name": "Improve Cache Locality",
+            "type": "Boolean",
+            "value": true
+        },
+        "joinIdenticalVertices": {
+            "description": "Identifies and joins identical vertex data sets within all imported meshes.",
+            "name": "Join Identical Vertices",
+            "type": "Boolean",
+            "value": true
+        },
+        "optimizeGraph": {
+            "description": "A postprocessing step to optimize the scene hierarchy.",
+            "name": "Optimize Graph",
+            "type": "Boolean",
+            "value": false
+        },
+        "optimizeMeshes": {
+            "description": "A postprocessing step to reduce the number of meshes.",
+            "name": "Optimize Meshes",
+            "type": "Boolean",
+            "value": false
+        },
+        "preTransformVertices": {
+            "description": "Removes the node graph and pre-transforms all vertices with the local transformation matrices of their nodes.",
+            "name": "Pre-transform Vertices",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeComponentAnimations": {
+            "description": "Removes any animation components from meshes.",
+            "name": "Remove Animation Components",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeComponentBoneWeights": {
+            "description": "Removes any bone weights from meshes.",
+            "name": "Remove Bone Weight components",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeComponentColors": {
+            "description": "Removes any Color components from meshes.",
+            "name": "Remove Color Components",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeComponentNormals": {
+            "description": "Removes Normal component from meshes.",
+            "name": "Remove Normal Components",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeComponentTangentsAndBitangents": {
+            "description": "Removes Tangents and Bitangents components from meshes.",
+            "name": "Remove Tangent Components",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeComponentTextures": {
+            "description": "Removes any embedded texture components from meshes.",
+            "name": "Remove Texture Components",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeComponentUVs": {
+            "description": "Removes any UV components from meshes.",
+            "name": "Remove UV Components",
+            "type": "Boolean",
+            "value": false
+        },
+        "removeRedundantMaterials": {
+            "description": "Searches for redundant/unreferenced materials and removes them.",
+            "name": "Remove Redundant Materials",
+            "type": "Boolean",
+            "value": false
+        },
+        "splitLargeMeshes": {
+            "description": "Splits large meshes into smaller sub-meshes.",
+            "name": "Split Large Meshes",
+            "type": "Boolean",
+            "value": true
+        },
+        "transformUVCoordinates": {
+            "description": "This step applies per-texture UV transformations and bakes them into stand-alone vtexture coordinate channels.",
+            "name": "Transform UV Coordinates",
+            "type": "Boolean",
+            "value": false
+        },
+        "useBinaryKeyframes": {
+            "description": "Record keyframe data as binary files",
+            "name": "Use Binary Keyframes",
+            "type": "Boolean",
+            "value": true
+        },
+        "useFloatJointIndices": {
+            "description": "Stores joint indices as floating point numbers for GLES 2.0.",
+            "name": "Use Float Joint Indices",
+            "type": "Boolean",
+            "value": false
+        }
+    },
+    "source_scene": "C:/Users/fabio/Documents/assets/vwgolf.obj"
+}
