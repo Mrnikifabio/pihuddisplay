@@ -11,11 +11,10 @@ class SpotifyLyricsApi : public QObject
         QString words;
         int endTimeMs;
 
-        Line(int startTimeMs, const QString words, int endTimeMs)
+        Line(int startTimeMs, const QString words)
         {
             this->startTimeMs = startTimeMs;
             this->words = words;
-            this->endTimeMs = endTimeMs;
         }
     };
 
@@ -28,10 +27,10 @@ class SpotifyLyricsApi : public QObject
 private:
     static QObject *m_instance;
     bool m_lyricsAvailable;
-    QList<Line*> *m_currentLinesLyrics;
+    QList<Line> m_currentLinesLyrics;
     QString m_currentLineLyrics;
     void setCurrentLineLyrics(const QString& newLine);
-    void newSongBegunHandle(const QString& songId);
+    void newSongBegunHandle();
     void progressChangedHandle();
     bool isLyricsAvailable() const;
     void setIsLyricsAvailable(const bool& isAvailable);

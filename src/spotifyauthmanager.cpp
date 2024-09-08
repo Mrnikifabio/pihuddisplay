@@ -107,6 +107,9 @@ void SpotifyAuthManager::beginAuthProcess()
     {
         auto ip = Utils::getIpAddr().toString();
         auto url = "https://accounts.spotify.com/authorize?client_id="+QString(STRINGIZE_VALUE_OF(CLIENTID))+"&scope=user-read-playback-state&response_type=code&redirect_uri=http://"+ip+":8080/api/spotify/auth&state="+Utils::gen_random(QRandomGenerator().bounded(30));
+
+        qDebug() << "redirect: " << "http://"+ip+":8080/api/spotify/auth";
+
         m_server->route("/api/spotify/auth", QHttpServerRequest::Method::Get, [this, url, ip](const QHttpServerRequest& req){
             if(!isConfigured() && !isAuthenticated())
             {

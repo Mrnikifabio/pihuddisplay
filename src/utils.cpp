@@ -102,5 +102,9 @@ void Utils::renewDhcpLease()
     QProcess dhcpLeaseCommand;
     dhcpLeaseCommand.start("udhcpc",{"-i", "bnep0"});
     dhcpLeaseCommand.waitForFinished(-1);
-    qDebug() << "Leased ip, exit code: "<<dhcpLeaseCommand.exitCode();
-}
+    auto code = dhcpLeaseCommand.exitCode();
+    qDebug() << "Leased ip, exit code: "<< code;
+
+    if(code != 0)
+        qDebug() << "IP LEASING FAILED: check that UDHCPC is available and working";
+ }

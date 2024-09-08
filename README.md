@@ -60,8 +60,6 @@ Other than a Raspberry Pi 4B, the prototype is using:
 
 - Moreover, there are other variables you have to configure in the CMakeLists:
 ```cmake
-#specify the lyrics end point based on . I suggest to host your personal server. See more details under "Issues"
-set(APPEND LYRICS_ENDPOINT "")
 
 #Specify the port the HTTP server needed to handle the Spotify user authentication is listening to 
 set(HTTP_SERVER_PORT 8080)
@@ -81,6 +79,10 @@ set(ENABLE_CAR_CRUISING_MOCKS true)
 ```
 
 - I suggest you to compile the app by using QtCreator. QtCreator also comes with a nice remote debugging feature you can configure to deploy and cross compile to the Pi or the Virtual Machine.
+- Be sure to have the following packages installed:
+```bash
+sudo apt install libglx-dev libgl1-mesa-dev
+```
 - Be sure to have Qt 6.4.2 sdk installed, specifically you need only some modules:.
 -You can install the right sdk by using the wonderful [aqt](https://github.com/miurahr/aqtinstall) tool
 
@@ -111,7 +113,7 @@ qml6-module-qt5compat-graphicaleffects udhcpc bluez
 ```
 - After installing the dependencies you can just run the app
 ```bash
-./DashboardApp
+sudo ./DashboardApp
 ```
 
 
@@ -121,11 +123,11 @@ qml6-module-qt5compat-graphicaleffects udhcpc bluez
 
 ## Issues
 - Issues with ELM hardware and software: connection pretty unstable, probably depends on the cheap usb adapter I've used).
-- Inconsistencies with lyrics display due to API limitations: sadly as you can see also in the repo I've linked under the aknwoledgements, Spotify is limiting the Lyrics feature to Premium account only. This means that to use fully the Lyrics feature inside this project you must host your own API endpoint with your premium account. The one used inside the repo might not always work.
-
+- ~~Inconsistencies with lyrics display due to API limitations~~ (Has been solved by changing the Lyrics backend with LRCLIB)
 ## Acknowledgments
 Huge thanks to the author of various libraries I've used:
 - ELM Qt-Based abstraction by [GitHub Snipesy/Elm327-Qt-Primitive-Implementation ](https://github.com/Snipesy/Elm327-Qt-Primitive-Implementation)
-- The Spotify Lyrics endpoint code by [GitHub akashrchandran/spotify-lyrics-api](https://github.com/akashrchandran/spotify-lyrics-api)
+- ~~The Spotify Lyrics endpoint code by [GitHub akashrchandran/spotify-lyrics-api](https://github.com/akashrchandran/spotify-lyrics-api)~~
+- Lyrics are now provided by the open source project [GitHub tranxuanthang/lrclib](https://github.com/tranxuanthang/lrclib)
 - Modern Http abstration used to access the Spotify API by [GitHub flaviotordini/http](https://github.com/flaviotordini/http)
 - The QR Code Generator library: used to provide the login url from the Spotify API by [GitHub nayuki/QR-Code-generator](https://github.com/nayuki/QR-Code-generator)

@@ -58,7 +58,6 @@ void SpotifyWebApi::requestPlaybackState(AccessToken *accessToken)
                             setProgressBarTotal(trackObj["duration_ms"].toInt());
                             setCurrentSongProgress(obj["progress_ms"].toInt());
                             setSongTitle(trackObj["name"].toString());
-                            setSongId(trackObj["id"].toString());
                             QString artists;
                             auto artistsArray = trackObj["artists"].toArray();
                             auto count = artistsArray.count();
@@ -71,6 +70,9 @@ void SpotifyWebApi::requestPlaybackState(AccessToken *accessToken)
                             if(trackObj["album"].isObject())
                             {
                                 auto album = trackObj["album"].toObject();
+
+                                setSongAlbum(album["name"].toString());
+
                                 if(album["images"].isArray())
                                 {
                                     auto albumArray = album["images"].toArray();
@@ -80,6 +82,7 @@ void SpotifyWebApi::requestPlaybackState(AccessToken *accessToken)
                             }
 
                             setSongArtists(artists);
+                            setSongId(trackObj["id"].toString());
                             setDataAvailable(true);
                         }
                     }
@@ -141,6 +144,15 @@ void SpotifyWebApi::setSongAlbumImage(QString songAlbumImage)
     }
 }
 
+void SpotifyWebApi::setSongAlbum(QString songAlbum)
+{
+    if(m_songAlbum != songAlbum)
+    {
+        m_songAlbum = songAlbum;
+        emit songAlbumChangedSignal();
+    }
+}
+
 void SpotifyWebApi::setCurrentSongProgress(int progress)
 {
     if(m_currentSongProgress != progress)
@@ -173,7 +185,7 @@ void SpotifyWebApi::setSongId(const QString& songId)
     if(m_songId != songId)
     {
         m_songId = songId;
-        emit songIdChangedSignal(songId);
+        emit songIdChangedSignal();
     }
 }
 
@@ -190,6 +202,11 @@ QString SpotifyWebApi::getSongArtists()
 QString SpotifyWebApi::getSongAlbumImage()
 {
     return m_songAlbumImage;
+}
+
+QString SpotifyWebApi::getSongAlbum()
+{
+    return m_songAlbum;
 }
 
 QString SpotifyWebApi::getSongId()
